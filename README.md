@@ -1,5 +1,5 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/tekkamanendless/iaqualink)](https://goreportcard.com/report/github.com/tekkamanendless/iaqualink)
-[![GoDoc](https://godoc.org/github.com/tekkamanendless/iaqualink?status.svg)](https://godoc.org/github.com/tekkamanendless/iaqualink)
+[![Go Report Card](https://goreportcard.com/badge/github.com/tekkamanendless/nagiosplugin)](https://goreportcard.com/report/github.com/tekkamanendless/nagiosplugin)
+[![GoDoc](https://godoc.org/github.com/tekkamanendless/nagiosplugin?status.svg)](https://godoc.org/github.com/tekkamanendless/nagiosplugin)
 
 # nagiosplugin
 A Go package to facilitate creating Nagios plugins.
