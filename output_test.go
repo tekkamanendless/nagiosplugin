@@ -140,6 +140,56 @@ func TestOutput(t *testing.T) {
 	})
 }
 
+func TestFormatFloat(t *testing.T) {
+	rows := []struct {
+		description string
+		value       float64
+		result      string
+	}{
+		{
+			description: "Zero",
+			value:       0,
+			result:      "0",
+		},
+		{
+			description: "One",
+			value:       1,
+			result:      "1",
+		},
+		{
+			description: "Negative one",
+			value:       -1,
+			result:      "-1",
+		},
+		{
+			description: "Medium number",
+			value:       12345,
+			result:      "12345",
+		},
+		{
+			description: "Large number",
+			value:       12345678910,
+			result:      "12345678910",
+		},
+		{
+			description: "Small number",
+			value:       0.00001,
+			result:      "0.00001",
+		},
+		{
+			description: "Tiny number",
+			value:       0.0000000001,
+			result:      "0.0000000001",
+		},
+	}
+	for rowIndex, row := range rows {
+		t.Run(fmt.Sprintf("%d/%s", rowIndex, row.description), func(t *testing.T) {
+			result := formatFloat(row.value)
+			assert.Equal(t, row.result, result)
+		})
+	}
+}
+
 func TestPerformanceData(t *testing.T) {
 	fp := func(v float64) *float64 {
 		return &v
@@ -212,7 +262,7 @@ func TestPerformanceData(t *testing.T) {
 					MinimumValue:  fp(0.1),
 					MaximumValue:  fp(100.1),
 				},
-				result: "value-1=42.100000KB;10.100000;20.100000;0.100000;100.100000",
+				result: "value-1=42.1KB;10.1;20.1;0.1;100.1",
 			},
 		}
 		for rowIndex, row := range rows {
