@@ -52,18 +52,26 @@ type PerformanceData struct {
 	MaximumValue  *float64 // This is the maximum value, if any.
 }
 
+// SetWarningValue sets the warning value (if any).
+// If your plugin was given a warning value for this metric, set it here.
 func (p *PerformanceData) SetWarningValue(v float64) {
 	p.WarningValue = &v
 }
 
+// SetCriticalValue sets the critical value (if any).
+// If your plugin was given a critical value for this metric, set it here.
 func (p *PerformanceData) SetCriticalValue(v float64) {
 	p.CriticalValue = &v
 }
 
+// SetMinimumValue sets the minimum value (if any).
+// If your plugin knows what the minimum value should be for this metric, set it here.
 func (p *PerformanceData) SetMinimumValue(v float64) {
 	p.MinimumValue = &v
 }
 
+// SetMaximumValue sets the maximum value (if any).
+// If your plugin knows what the maximum value should be for this metric, set it here.
 func (p *PerformanceData) SetMaximumValue(v float64) {
 	p.MaximumValue = &v
 }
