@@ -2,6 +2,7 @@ package nagiosplugin
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -77,11 +78,9 @@ func (p *PerformanceData) SetMaximumValue(v float64) {
 }
 
 // formatFloat returns a string from a floating point value.
-// If the value is a whole number, then no decimal place will be shown.
+// This will attempt to use the fewest digits possible (but *not* resorting to scientific notation).
 func formatFloat(f float64) string {
-	v := fmt.Sprintf("%f", f)
-	v = strings.TrimSuffix(v, ".000000")
-	return v
+	return strconv.FormatFloat(f, 'f', -1, 64)
 }
 
 // This serializes the performance data as a string in the format that `nagiosgraph` wants.
